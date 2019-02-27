@@ -1,0 +1,5 @@
+nothing
+anotherwordnothing
+word and another
+middle woRd must be there
+and input1.txt for sure
