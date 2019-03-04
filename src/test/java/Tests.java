@@ -1,9 +1,7 @@
 import org.junit.jupiter.api.Test;
-
 import java.io.IOException;
-import java.util.List;
+import static org.junit.jupiter.api.Assertions.*;
 
-import static org.junit.Assert.*;
 
 public class Tests {
 
@@ -18,6 +16,9 @@ public class Tests {
         assertEquals("[nothing]", grep.getStrings().toString());
         grep = new Grep("-r word src\\test\\java\\input1.txt");
         assertEquals("[anotherwordnothing, word and another]", grep.getStrings().toString());
+        grep = new Grep("-r -v word and src\\test\\java\\input2.txt");
+        assertEquals("[]", grep.getStrings().toString());
+        assertThrows(IllegalArgumentException.class, () -> new Grep("-r -v word and src\\test\\java\\input1.t"));
     }
 
 }
